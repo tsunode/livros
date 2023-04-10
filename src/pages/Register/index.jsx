@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { api } from "../../services/api";
 
@@ -9,6 +9,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../styles/Button";
 import { Main } from "./styles";
 import { schema } from "./validator";
+import { Header } from "../../components/Header";
 
 export const Register = () => {
   const {
@@ -16,7 +17,7 @@ export const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: zodResolver(schema),
   });
   const navigate = useNavigate();
 
@@ -33,10 +34,12 @@ export const Register = () => {
 
   return (
     <Main>
-      <h1>Cadastrar Livro</h1>
+      <Header />
 
-      <form onSubmit={handleSubmit(registerBook)}>
-        <div>
+      <section>
+        <h1>Cadastrar Livro</h1>
+
+        <form onSubmit={handleSubmit(registerBook)}>
           <div>
             <Input
               id="name"
@@ -73,48 +76,18 @@ export const Register = () => {
               error={errors.numberPages?.message}
               {...register("numberPages")}
             />
-          </div>
-          <div>
-            <Input
-              id="licensor"
-              type="text"
-              label="Licenciador"
-              error={errors.licensor?.message}
-              {...register("licensor")}
-            />
-            <Input
-              id="category"
-              type="text"
-              label="Categoria"
-              error={errors.category?.message}
-              {...register("category")}
-            />
-            <Input
-              id="genre"
-              type="text"
-              label="Gênero"
-              error={errors.genre?.message}
-              {...register("genre")}
-            />
-            <Input
-              id="art"
-              type="text"
-              label="Artista"
-              error={errors.art?.message}
-              {...register("art")}
-            />
-            <Input
-              id="editor"
-              type="text"
-              label="Editor"
-              error={errors.editor?.message}
-              {...register("editor")}
-            />
-          </div>
-        </div>
 
-        <Button type="submit">Cadastrar</Button>
-      </form>
+            <Input
+              id="author"
+              type="text"
+              label="Autor"
+              error={errors.author?.message}
+              {...register("author")}
+            />
+          </div>
+          <Button type="submit">Cadastrar</Button>
+        </form>
+      </section>
     </Main>
   );
 };

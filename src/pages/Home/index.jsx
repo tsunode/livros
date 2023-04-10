@@ -6,7 +6,7 @@ import { api } from "../../services/api";
 
 import { Card } from "../../components/Card";
 import { ArrowContainer, CardsContainer, Main } from "./styles";
-import { Link } from "../../styles/Button";
+import { Header } from "../../components/Header";
 
 export const Home = () => {
   const [books, setBooks] = useState([]);
@@ -26,30 +26,25 @@ export const Home = () => {
       id={book.id}
       image={book.cover}
       name={book.name}
-      art={book.art}
+      author={book.author}
     />
   ));
 
   return (
     <Main>
-      <header>
-        <Link to='/register'>Cadastrar Livro</Link>
-      </header>
+      <Header hasRegisterLink hasSearchInput />
 
-      {id ? (
-        <Outlet />
-      ) : (
-        <>
-          <h1>Selecione um livro abaixo</h1>
-          <ArrowContainer>
-            <SlArrowDown size={80} />
-            <SlArrowDown size={80} />
-            <SlArrowDown size={80} />
-          </ArrowContainer>
-        </>
-      )}
+      <div className="container">
+        {id ? (
+          <Outlet />
+        ) : (
+          <>
+            <h1>Selecione um livro abaixo</h1>
+          </>
+        )}
 
-      <CardsContainer>{renderBooks}</CardsContainer>
+        <CardsContainer>{renderBooks}</CardsContainer>
+      </div>
     </Main>
   );
 };

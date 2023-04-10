@@ -13,7 +13,7 @@ export const Container = styled.li`
     border-radius: 20px;
     padding: 14px;
 
-    color: var(--color-white);
+    color: var(--color-secondary);
 
     text-decoration: none;
   }

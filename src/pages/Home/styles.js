@@ -5,15 +5,17 @@ export const Main = styled.main`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 
-  header {
-    display: flex;
-    justify-content: flex-end;
+  h1 {
+    text-align: center;
+  }
 
-    width: 100%;
-    padding: 0 20px;
+  > div.container {
+    height: calc(100vh - 85px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 `;
 

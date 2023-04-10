@@ -1,16 +1,10 @@
-import * as yup from "yup";
+import * as z from "zod";
 
-export const schema = yup
-  .object({
-    name: yup.string().required("Nome é obrigatório"),
-    cover: yup.string().url("Deve ser uma url").required("Capa é obrigatória"),
-    published: yup.string().required("Data de publicação é obrigatória"),
-    publishingCompany: yup.string().required("Editora é obrigatória"),
-    numberPages: yup.number('Deve ser um número').typeError('Deve ser um número').required("Quantidade de páginas é obrigatória"),
-    licensor: yup.string().required("Licenciador é obrigatório"),
-    category: yup.string().required("Categoria é obrigatória"),
-    genre: yup.string().required("Gênero é obrigatório"),
-    art: yup.string().required("Artista é obrigatório"),
-    editor: yup.string().required("Editor é obrigatório"),
-  })
-  .required();
+export const schema = z.object({
+  name: z.string().nonempty("Nome é obrigatório"),
+  cover: z.string().url("Deve ser uma url").nonempty("Capa é obrigatória"),
+  published: z.string().nonempty("Data de publicação é obrigatória"),
+  publishingCompany: z.string().nonempty("Editora é obrigatória"),
+  numberPages: z.coerce.number().min(1, 'Deve ser maior ou igual a 1'),
+  author: z.string().nonempty("Autor é obrigatório"),
+});

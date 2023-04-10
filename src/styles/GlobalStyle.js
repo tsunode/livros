@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   :root {
-    --color-primary: #283ADE;
-    --color-secondary: #3A0707;
-    --color-white: #EFEFEF;
+    --color-primary: #360707 ;
+    --color-secondary: #DCD6D6;
+    --color-black: #100F0F;
     --color-transparent: rgba(217, 217, 217, 0.36);
     --color-success: #7CC39C;
     --color-warning: #FBEA85;
@@ -32,7 +32,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(180deg, var(--color-black) 74.66%, var(--color-primary) 100%);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
 
@@ -45,7 +45,7 @@ export default createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, p {
-    color: var(--color-white);
+    color: var(--color-secondary);
     font-weight: 500;
   }
 

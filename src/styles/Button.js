@@ -2,10 +2,10 @@ import { Link as LinkRouter } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const defaultCssButton = css`
-  background-color: var(--color-white);
-  border-radius: 15px;
+  background-color: var(--color-secondary);
+  border-radius: 20px;
 
-  padding: 9px;
+  padding: 8px 20px;
 
   text-align: center;
   color: var(--color-primary);

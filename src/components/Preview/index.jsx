@@ -29,9 +29,15 @@ export const Preview = () => {
         <h1>{book.name}</h1>
 
         <div>
-          <p><strong>Publicado em:</strong> {book.published}</p>
-          <p><strong>Editora:</strong> {book.publishingCompany}</p>
-          <p><strong>Nº de páginas:</strong> {book.numberPages}</p>
+          <p>
+            <strong>Publicado em:</strong> {book.published}
+          </p>
+          <p>
+            <strong>Editora:</strong> {book.publishingCompany}
+          </p>
+          <p>
+            <strong>Nº de páginas:</strong> {book.numberPages}
+          </p>
         </div>
 
         <Link to={`/info/${id}`}>Mais infos</Link>
